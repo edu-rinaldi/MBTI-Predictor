@@ -26,11 +26,11 @@ class MBTI(Enum):
         return self.name
 
 def getPostWithType(data, type : MBTI):
-    posts = list(filter(lambda d: d['author_flair_text'] != None and type.value[0] in d['author_flair_text'].upper(), data))
+    posts = list(filter(lambda d: d['author_flair_text'] != None, data))
     users = set(map(lambda post: post['author'], posts))
     print(f"- Num. of posts found for {type}: {len(posts)}")
     print(f"- {type} users found: {len(users)}")
-    return posts
+    return posts, users
 def main(argv):
     if len(argv) < 2:
         print("path to json needed")
@@ -46,7 +46,8 @@ def main(argv):
         \n- time filter: {scrape_settings['time_filter']}")
 
     print('\n'+'-'*20+'\n')
-    a = getPostWithType(data, MBTI.ESFP)
+    posts, users = getPostWithType(data, MBTI.ESFP)
+    print(users.pop())
 
 
 if __name__ == '__main__':

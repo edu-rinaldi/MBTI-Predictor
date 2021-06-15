@@ -112,11 +112,11 @@ if __name__ == '__main__':
 
     # for each user get last posts
     for type, users in all_users.items():
+        if type in types[:-3]:
+            continue
         num_users = len(users)
         print(f"Scraping {num_users} users with type {type}")
         for i, user in enumerate(users):
-            if i % (num_users//10) == 0:
-                print(f"{i}/{num_users} users done")
             try: 
                 scrape_all_posts_from_user(reddit.redditor(user), posts, type, limit=100)
             except Forbidden as e:
@@ -124,7 +124,7 @@ if __name__ == '__main__':
         old_total = total
         total = len(posts)
         print(f"Found +{abs(total - old_total)} new posts\nWith a total of {total} posts")
-        with open("categorized_posts.json", "w", encoding='utf8') as f:
+        with open("categorized_posts2.json", "w", encoding='utf8') as f:
             json.dump(posts, f)
     
     
