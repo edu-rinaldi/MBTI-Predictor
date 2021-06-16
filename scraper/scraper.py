@@ -112,8 +112,9 @@ if __name__ == '__main__':
 
     # for each user get last posts
     for type, users in all_users.items():
-        if type in types[:-3]:
-            continue
+        # this below is a "filter" in case program crash and so we don't have to restart from zero
+        # if type in types[:-3]:
+        #     continue
         num_users = len(users)
         print(f"Scraping {num_users} users with type {type}")
         for i, user in enumerate(users):
