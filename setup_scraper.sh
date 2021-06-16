@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Simple script for creating your personal .env file
+
 function print_usage {
 	echo -e "Error, command expect:"
 	echo -e "\tsetup_scraper CLIENT_ID CLIENT_SECRET USER_AGENT REDDIT_USERNAME PASSWORD";
