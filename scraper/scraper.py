@@ -3,7 +3,7 @@ import praw
 import os, re, json
 from dotenv import load_dotenv
 from praw.reddit import Comment
-from prawcore.exceptions import Forbidden
+from prawcore.exceptions import Forbidden, NotFound
 
 types = [
     'istj', 
@@ -58,17 +58,17 @@ def scrape_all_posts_from_user(redditor, out_posts : list, type : str, limit : i
     for submission in redditor.submissions.top("all", limit=limit):
         # if there is text
         if submission.selftext != '':
-            out_posts += [{"post" : submission.selftext, "type": type}]
+            out_posts += [{"redditor_id": redditor.id, "post" : submission.selftext, "type": type, "text_type": "post"}]
         # else is a link post, so we should take the title
         else:
-            out_posts += [{"post" : submission.title, "type": type}]
-
+            out_posts += [{"redditor_id": redditor.id, "post" : submission.title, "type": type, "text_type": "title"}]
     # look for user comments
     for comment in redditor.comments.top("all", limit=limit):
         # empty comment with only mentioning user
         if comment.body.find("u/") == 0:
             continue
-        out_posts += [{"post" : comment.body, "type": type}]
+        out_posts += [{"redditor_id": redditor.id, "post" : comment.body, "type": type, "text_type": "comment"}]
+    
 
 
 def mbti_users_to_json():
@@ -104,7 +104,7 @@ if __name__ == '__main__':
     # mbti_users_to_json()
 
     # mbti posts to json
-    with open("categorized_users.json", 'r', encoding="utf8") as f:
+    with open("../dataset/categorized_users.json", 'r', encoding="utf8") as f:
         all_users = json.load(f)
 
     posts = []
@@ -122,10 +122,12 @@ if __name__ == '__main__':
                 scrape_all_posts_from_user(reddit.redditor(user), posts, type, limit=100)
             except Forbidden as e:
                 print(f"{user} user is forbidden")
+            except NotFound as e:
+                print(f"{user}'s submission/comment not found")
         old_total = total
         total = len(posts)
         print(f"Found +{abs(total - old_total)} new posts\nWith a total of {total} posts")
-        with open("categorized_posts2.json", "w", encoding='utf8') as f:
+        with open("categorized_posts_2.json", "w", encoding='utf8') as f:
             json.dump(posts, f)
     
     
