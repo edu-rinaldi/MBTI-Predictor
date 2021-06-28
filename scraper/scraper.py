@@ -1,6 +1,6 @@
 import praw
 
-import os, re, json
+import os, re, json, csv
 from dotenv import load_dotenv
 from praw.reddit import Comment
 from prawcore.exceptions import Forbidden, NotFound
@@ -84,6 +84,7 @@ def mbti_users_to_json():
     all_users = dict(map(lambda kv: (kv[0], list(kv[1])) , all_users.items()))
     with open("categorized_users.json", "w", encoding="utf8") as f:
         json.dump(all_users, f)
+
 
 if __name__ == '__main__':
     load_dotenv()
