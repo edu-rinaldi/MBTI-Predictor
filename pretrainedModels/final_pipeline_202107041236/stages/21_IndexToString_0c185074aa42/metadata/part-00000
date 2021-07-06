@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.IndexToString","timestamp":1625402198370,"sparkVersion":"3.0.3","uid":"IndexToString_0c185074aa42","paramMap":{"labels":["p","j"],"outputCol":"pj_labeled_pred","inputCol":"pj_pred"},"defaultParamMap":{"outputCol":"IndexToString_3e95628f54df__output"}}

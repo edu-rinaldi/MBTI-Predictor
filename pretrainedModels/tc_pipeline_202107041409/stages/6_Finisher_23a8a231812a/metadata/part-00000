@@ -1,0 +1,1 @@
+{"class":"com.johnsnowlabs.nlp.Finisher","timestamp":1625407790580,"sparkVersion":"3.0.3","uid":"Finisher_23a8a231812a","paramMap":{"inputCols":["cleanLemma_2"],"includeMetadata":false,"outputCols":["terms"]},"defaultParamMap":{"annotationSplitSymbol":"@","valueSplitSymbol":"#","parseEmbeddingsVectors":false,"outputAsArray":true,"includeMetadata":false,"cleanAnnotations":true}}

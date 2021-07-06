@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.IndexToString","timestamp":1625493073518,"sparkVersion":"3.0.3","uid":"IndexToString_ad6ecc149da7","paramMap":{"outputCol":"tf_labeled_pred","labels":["t","f"],"inputCol":"tf_pred"},"defaultParamMap":{"outputCol":"IndexToString_ad6ecc149da7__output"}}
