@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.feature.IndexToString","timestamp":1625621136595,"sparkVersion":"3.0.3","uid":"IndexToString_612e38403557","paramMap":{"outputCol":"ns_labeled_pred","labels":["n","s"],"inputCol":"ns_pred"},"defaultParamMap":{"outputCol":"IndexToString_612e38403557__output"}}

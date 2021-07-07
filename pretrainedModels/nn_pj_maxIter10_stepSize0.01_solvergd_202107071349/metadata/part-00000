@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.PipelineModel","timestamp":1625665775762,"sparkVersion":"3.0.3","uid":"PipelineModel_aac9def4aa1d","paramMap":{"stageUids":["MultilayerPerceptronClassifier_a2d9102be5da","IndexToString_be022a96eaaf"]},"defaultParamMap":{}}
