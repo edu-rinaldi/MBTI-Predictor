@@ -1,0 +1,1 @@
+{"class":"com.johnsnowlabs.nlp.DocumentAssembler","timestamp":1625736082434,"sparkVersion":"3.0.3","uid":"DocumentAssembler_b0c3a8064c23","paramMap":{"inputCol":"post","outputCol":"document"},"defaultParamMap":{"cleanupMode":"disabled","outputCol":"document"}}
