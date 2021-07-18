@@ -1,4 +1,4 @@
-# MBTI-Predictor
+# MBTI Predictor
 
 ## What is a **MBTI**
 The MBTI (Myers-Briggs Personality Type Indicator) divides everyone into **16 distinct personality** types across **4 axis**:
